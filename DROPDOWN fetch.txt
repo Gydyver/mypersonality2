@@ -1,0 +1,42 @@
+<form name="message" action="" method="post" onsubmit="" accept-charset="utf-8">
+    <div class="form-group">
+        <label id="senderName">שם השולח:</label>
+
+
+
+    </div>
+<div class="form-group">
+
+    <label for="to_user">מען:</label>
+    <select name="to_user" class="form-control">
+        <option value="pick">בחר מהרשימה</option>
+            <?php
+
+            $sql = \mysqli_query("SELECT name From users");
+            $row = mysqli_num_rows($sql);
+
+
+                echo "<select name='to_user'>";
+                while ($row = mysqli_fetch_array($sql)){
+                    echo "<option value='". $row['name'] ."'>" .$row['name'] ."</option>" ;
+                }
+                echo "</select>" ;
+
+            ?>
+
+    </select>
+
+
+</div>
+
+KOREKSI:
+<select name="to_user" class="form-control">
+<option value="pick">בחר מהרשימה</option>
+<?php
+$sql = mysqli_query($con, "SELECT name From users");
+$row = mysqli_num_rows($sql);
+while ($row = mysqli_fetch_array($sql)){
+echo "<option value='". $row['name'] ."'>" .$row['name'] ."</option>" ;
+}
+?>
+</select>
