@@ -16,16 +16,6 @@
 	<title>MyPersonality - Personality test</title>
 </head>
 <body>
-    <div class="topnav" id="myTopnav"> 
-        <p class="logo">MyPersonality</p> 
-        <a href="#">ABOUT</a> 
-        <a href="#">REVIEW</a>
-        <a href="personalitytypes.php">PERSONALITY TYPE</a>
-        <a href="#" class="btn btn-info">HOME</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
     <div class="personalitycover">
         <img src="img/INFP.svg">
         <h1><center>INFP Personality (“The Mediator”)</center></h1>
@@ -51,18 +41,6 @@
         <p>If they are not careful, INFPs can lose themselves in their quest for good and neglect the day-to-day upkeep that life demands. INFPs often drift into deep thought, enjoying contemplating the hypothetical and the philosophical more than any other personality type. Left unchecked, INFPs may start to lose touch, withdrawing into "hermit mode", and it can take a great deal of energy from their friends or partner to bring them back to the real world.</p>
         <p>Luckily, like the flowers in spring, INFP’s affection, creativity, altruism and idealism will always come back, rewarding them and those they love perhaps not with logic and utility, but with a world view that inspires compassion, kindness and beauty wherever they go.</p>
     </div>
-   <div class="footer">
-       <div>
-            <div class="footer-icons col-md-6 col-xs-10">
-                <a href="#"><img src="icon/002-twitter.png">mypersonality</a>
-                <a href="#"><img src="icon/001-facebook.png">MyPersonality ID</a>
-                <a href="#"><img src="icon/envelope.png">help@myprs.id</a>
-            </div>
-            <div class="copyright">
-                <center><p>Copyright &#169; 2018 Personality Pshycology Online Test Inc. All right reserved</p></center></p>
-            </div>
-        </div>
-   </div>  
 
 </body>
 <script>

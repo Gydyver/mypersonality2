@@ -37,16 +37,9 @@
     }
 
 ?>
-    <div class="topnav" id="myTopnav"> 
-        <p class="logo">MyPersonality</p> 
-        <a href="#">ABOUT</a> 
-        <a href="#">REVIEW</a>
-        <a href="personalitytypes.php">PERSONALITY TYPE</a>
-        <a href="#" class="btn btn-info">HOME</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+<?php
+    include('topnavigation.php');
+?> 
     <div class="therules">
         <div class="titletypes">
                 <center><p><h2>ATTENTION</h2></p></center>
@@ -279,19 +272,9 @@
         </div>  
         </form>
     </div>
-    
-   <div class="footer">
-       <div>
-            <div class="footer-icons col-md-6 col-xs-10">
-                <a href="#"><img src="icon/002-twitter.png">mypersonality</a>
-                <a href="#"><img src="icon/001-facebook.png">MyPersonality ID</a>
-                <a href="#"><img src="icon/envelope.png">help@myprs.id</a>
-            </div>
-            <div class="copyright">
-                <center><p>Copyright &#169; 2018 MyPersonality Personality Online Test Inc. All right reserved</p></center></p>
-            </div>
-        </div>
-   </div>  
+<?php
+    include('footer.php');
+?> 
 
 </body>
 <script>
