@@ -51,7 +51,7 @@
                     <label style="font-family: Good Feeling Sans Demo;">Full Name:</label>
                     <input type="text" name="fullname" id="fullname" class="form-control" title="only allowed the alphabet without space." style="margin: 3%; width: 500px;"/>
                     <label style="font-family: Good Feeling Sans Demo;">E-Mail:</label>
-                    <input type="email" name="emaill" id="email" title="ex email : emailname@hostname.com" class="form-control validate" style="margin: 3%; width: 500px;"/>
+                    <input type="email" name="email" id="email" title="ex email : emailname@hostname.com" class="form-control validate" style="margin: 3%; width: 500px;"/>
                     <input type="submit" name="insert" id="insert" value="insert" class="btn btn-success"/>
             </form>
             </div>
@@ -61,7 +61,51 @@
         </div>
     </div>
 </div>
+<?php
+        if(isset($_POST["insert"]))
+        {
+            if(!isset($_POST["fullname"])){
+                $error = 'PLEASE INPUT YOUR NAME';
+                return $error;
+            }elseif (!isset($_POST["email"])){
+                    $error = 'PLEASE INPUT YOUR EMAIL';
+                    return $error;
+            }
+    
+        //Including dbconfig file.
+        include 'konekmysqli2.php';
 
+        $inputname=$_POST["fullname"];
+        $inputemail=$_POST["email"];
+
+        $query = "SELECT user_email FROM user_table where user_email = '".$inputemail."'";
+        $result = mysqli_query($db, $query);
+        if($result){
+            while ($row = mysqli_fetch_row($result)) {
+                if (isset($inputemail->user_email)) {
+                    echo "ada";
+                }else{
+                     $query = "INSERT INTO user_table (user_email,user_name) VALUES ('$inputemail','$inputname')";
+                     $result = mysqli_query($db, $query);
+  
+                     echo " Added Successfully ";
+                        
+                     }
+                }
+            }
+        }
+        
+         //Including dbconfig file.
+        // include 'konekmysqli2.php';
+         
+        // $inputname=$_POST["fullname"];
+        // $inputemail=$_POST["email"];
+        
+
+
+       
+
+        ?>
     
 </div>
 </body>
@@ -74,14 +118,14 @@ $(document).ready(function(){
         {
             alert("Full name is required");
         }
-        else if($('#email').vall() == '')
+        else if($('#email').val() == '')
         {
             alert("Email is required");
         }
         else
         {
             $.ajax({
-                url:"namadanemail.php",
+                url:"mypersonality.php",
                 method:"POST",
                 data:$('#insert_form').serialize(),
                 success:function(data)
