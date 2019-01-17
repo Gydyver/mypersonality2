@@ -197,8 +197,8 @@ a.btn.btn-info.fpbtn{
    */
 
 .personalitycover, .personalityinfo{
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .personalitycover h1, .personalitycover p, .personalitycover footer, .personalityinfo h2{
     font-family: "good feeling sans demo";
