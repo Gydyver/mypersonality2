@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- css -->
 	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="adminfile.css">
+    <link rel="stylesheet" type="text/css" href="Admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- script -->
 	<script src="tools/js/jquery.min.js"></script>
@@ -20,7 +20,7 @@
 ?>
     <div class="center-block" style="margin-top:6%;">
         <div style="text-align:center; color:#ec8007; background-color:#eceadc;">
-            <h1>NEW QUESTION</h1>
+            <h1>QUESTION</h1>
         </div>
         <div class="center-block">
         <form action="#" method="POST">

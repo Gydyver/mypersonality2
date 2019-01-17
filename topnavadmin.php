@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- css -->
 	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="adminfile.css">
+    <link rel="stylesheet" type="text/css" href="Admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- script -->
 	<script src="tools/js/jquery.min.js"></script>
@@ -15,12 +15,11 @@
 	<title>MyPersonality - Personality test</title>
 </head>
 <body>
-
     <div class="topnav" id="myTopnav">
-        <a href="admin.php" class="active">Home</a>
-        <a href="newquestion.php">Add</a>
-        <a href="updatequestion.php">Update</a>
-        <a href="deletequestion.php">Delete</a>
+        <a href="Admin_Home.php" class="active">Home</a>
+        <a href="Admin_newquestion.php">Add</a>
+        <a href="Admin_updatequestion.php">Update</a>
+        <a href="Admin_deletequestion.php">Delete</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>

@@ -27,7 +27,7 @@
 		<div class="fptext2">
 			<p class="intro">Take your Personality Test and get a 'freakishly accurate' description of who you are.</p>
             <!-- <a href="#"><button class="btn btn-info fpbtn" title="take the test!">Take The Test</button></a> -->
-            <a href="home3.php" class="btn btn-info fpbtn" title="take the test!">Take The Test</a>
+            <a href="" class="btn btn-info fpbtn" title="take the test!" data-toggle="modal" data-target="#add_data_modal">Take The Test</a>
 			<p class="review">“let's see the incredible of you.”</p>
         </div>
         <div class="fpicon">
@@ -35,7 +35,63 @@
             <a href="#"><img class="tw" src="icon/002-twitter.png" title="mypersonality_id"></a>
 			<a href="#"><img class="email" src="icon/envelope.png" title="help@mypersonality.id"></a>
 		</div>
-    </div>    
+    </div>
+
+    <!-- LOGIN POP UP -->
+    <div id="add_data_modal" class="modal fade" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">                
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+                <p class="word2">MyPersonality</p>
+                <h2 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">know yourself, know your best way</h2>
+            </div>
+            <div class="modal-body">
+            <form id="insert_form" action="namadanemail.php" method="POST">
+                    <label style="font-family: Good Feeling Sans Demo;">Full Name:</label>
+                    <input type="text" name="fullname" id="fullname" class="form-control" title="only allowed the alphabet without space." style="margin: 3%; width: 500px;"/>
+                    <label style="font-family: Good Feeling Sans Demo;">E-Mail:</label>
+                    <input type="email" name="emaill" id="email" title="ex email : emailname@hostname.com" class="form-control validate" style="margin: 3%; width: 500px;"/>
+                    <input type="submit" name="insert" id="insert" value="insert" class="btn btn-success"/>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button id="button" class="btn btn-default" data-dismiss="modal">Close<i class="fa fa-paper-plane-o ml-1"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 </div>
 </body>
+<script>
+$(document).ready(function(){
+
+    $('#insert_form').on('submit', function(event){
+        event.preventDefault();
+        if ($('#fullname').val() == '')
+        {
+            alert("Full name is required");
+        }
+        else if($('#email').vall() == '')
+        {
+            alert("Email is required");
+        }
+        else
+        {
+            $.ajax({
+                url:"namadanemail.php",
+                method:"POST",
+                data:$('#insert_form').serialize(),
+                success:function(data)
+                {
+                    $('#insert_form')[0].reset();
+                    $('#add_data_modal').modal('hide');
+                }
+            });
+        }
+    });
+});
+</script>
 </html>
