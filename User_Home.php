@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- css -->
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="tes.css">
+    <link rel="stylesheet" type="text/css" href="User.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- script -->
     <script src="tools/js/jquery.min.js"></script>
@@ -16,22 +16,22 @@
 </head>
 <body>
 <?php
-    include("konekmysqli.php");
+    include("konekmysqli2.php");
 
-    $query = "SELECT * FROM question";
+    $query = "SELECT * FROM question_table WHERE status = 1";
     $result = mysqli_query($db, $query);
     if(!$result){
         echo "salah query";
     }
     while ($row = mysqli_fetch_array($result)) {
-        echo "<br/>". $row['the_question'];
+        echo "<br/>". $row['question'];
         echo "<br/>";
         echo "
         <label class='radio-inline'><span>YES</span>
-            <input type='radio' class='form-check-label' name=".$row['Q_id']." checked value='1'/>
+            <input type='radio' class='form-check-label' name=".$row['id_question']." checked value='1'/>
         </label>
         <label class='radio-inline'><span>NO</span>
-            <input type='radio' class='form-check-label' name=".$row['Q_id']." checked value='2'/>
+            <input type='radio' class='form-check-label' name=".$row['id_question']." checked value='2'/>
         </label>
         ";
     }

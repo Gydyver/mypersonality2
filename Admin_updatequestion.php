@@ -29,7 +29,7 @@
             <?php
             include 'konekmysqli2.php';
              if (isset($_POST['view'])) {
-                $query = 'SELECT * FROM question_table';
+                $query = 'SELECT * FROM question_table WHERE status = 1';
                 $result = mysqli_query($db, $query) ;
 
                 if (!$result) {
@@ -73,7 +73,7 @@
                         if(!$result1){
                             echo "salah query";
                         }
-                            echo "MASHOKKKK";
+                            echo $result;
                     }
             
             ?>

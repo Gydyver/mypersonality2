@@ -57,7 +57,7 @@
         $inputcategory=$_POST["inputcategory"];
         $inputquestion=$_POST["inputquestion"];
         
-        $query = "INSERT INTO question_table (category, question) VALUES ('$inputcategory','$inputquestion')";
+        $query = "INSERT INTO question_table (category, question, status) VALUES ('$inputcategory','$inputquestion', 1)";
         $result = mysqli_query($db, $query);
 
         echo " Added Successfully ";

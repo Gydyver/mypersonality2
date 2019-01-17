@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- css -->
 	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="tes.css">
+	<link rel="stylesheet" type="text/css" href="User.css">
 	<!-- script -->
 	<script src="tools/js/jquery.min.js"></script>
 	<script src="bootstrap/bootstrap.min.js"></script>
