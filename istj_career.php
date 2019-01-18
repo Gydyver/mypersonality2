@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- css -->
-	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="User.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-	<!-- script -->
-	<script src="tools/js/jquery.min.js"></script>
-	<script src="bootstrap/bootstrap.min.js"></script>
-	<!-- <script src="tools/js/angular.min.js"></script> -->
-	<title>MyPersonality - Personality test</title>
-</head>
-<body>
+<link rel="stylesheet" type="text/css" href="User.css">
     <div class="personalitycover">
         <h1><center>Logistician Careers</center></h1>
     </div>
@@ -38,37 +21,3 @@
         </ul>
         </div>
     </div>
-
-</body>
-<script>
-// window.onscroll = function() {stickynav()};
-
-// var topnavbar = document.getElementById("myTopnav");
-// var sticky = topnavbar.offsetTop;
-
-// function stickynav() {
-// 	if (window.pageYOffset >= sticky) {
-//     topnavbar.classList.add("sticky");
-//  	} else {
-//     topnavbar.classList.remove("sticky");
-//   	}
-// }
-    
-$(window).scroll(function () {
-if ($(window).scrollTop() >= 50) {
-$('.topnav').css('background','transparent');
-} else {
-$('.topnav').css('background','transparent');
-}
-});
-
-function myFunctionn() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-</script>
-</html>

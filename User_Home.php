@@ -15,28 +15,7 @@
     <title>MyPersonality - Personality test</title>
 </head>
 <body>
-<?php
-    include("konekmysqli2.php");
 
-    $query = "SELECT * FROM question_table WHERE status = 1";
-    $result = mysqli_query($db, $query);
-    if(!$result){
-        echo "salah query";
-    }
-    while ($row = mysqli_fetch_array($result)) {
-        echo "<br/>". $row['question'];
-        echo "<br/>";
-        echo "
-        <label class='radio-inline'><span>YES</span>
-            <input type='radio' class='form-check-label' name=".$row['id_question']." checked value='1'/>
-        </label>
-        <label class='radio-inline'><span>NO</span>
-            <input type='radio' class='form-check-label' name=".$row['id_question']." checked value='2'/>
-        </label>
-        ";
-    }
-
-?>
 <?php
     include('topnavigation.php');
 ?> 
@@ -65,212 +44,98 @@
             </div>
         </div>
         <hr>
-        <div class="thequestion">
-            <form action="namadanemail.php" method="POST">
-            <center><label style="font-family: Good Feeling Sans Demo;">Name: </label><input type="text" name="nama"/></center>
-            <div class="Q">
-                <p class="Q1">You find it difficult to introduce yourself to other people.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
+        <?php
+    include("konekmysqli2.php");
+
+    $query = "SELECT * FROM question_table WHERE status = 1";
+    $result = mysqli_query($db, $query);
+    if(!$result){
+        echo "salah query";
+    }
+    while ($row = mysqli_fetch_array($result)) {
+        echo "<br/>". $row['question'];
+        echo "<br/>";
+        echo "
+        <label class='radio-inline'><span>YES</span>
+            <input type='radio' class='form-check-label' name=".$row['id_question']." value='1'/>
+        </label>
+        <label class='radio-inline'><span>NO</span>
+            <input type='radio' class='form-check-label' name=".$row['id_question']." value='2'/>
+        </label>
+        ";
+    }
+
+?>
+<br/>
+<br/>
+<button type="submit" name="submitjawaban" class="btn btn-info" data-toggle="modal" data-target="#result">submit</button>
+<?php
+
+if(isset($_POST['submitjawaban'])){
+    while ($row = mysqli_fetch_array($result)) {
+        $jawaban = $row['id_question'];
+        $answer = $_POST['id_question'];
+    
+        foreach($answer as $user_answer)
+        {
+        $query = "INSERT INTO answer_table (id_answer,id_user,id_question,answer) VALUES ('1','$jawaban',$user_answer)";
+        $result = mysqli_query($db, $query);
+        }
+        echo "berhasil ambil jawaban";
+    }
+// if(isset($_POST['submit'])){
+//     $jawaban = $row['id_question'];
+//     $answer = $_POST[$jawaban];
+
+//     foreach($answer as $user_answer)
+//     {
+//     $query = "INSERT INTO answer_table (id_answer,id_user,id_question,answer) VALUES ('1','$jawaban',$user_answer)";
+//     $result = mysqli_query($db, $query);
+//     }
+//     echo "berhasil ambil jawaban";
+// }else{
+//     echo "belum bisa ngambil jawaban";
+ }
+
+?>
+    <div id="result1" class="modal fade" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">                
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+                    <p class="word2">MyPersonality</p>
+                    <h2 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">I S T J</h2>
+                    <h3 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Logitician</h3>
+                </div>
+                <div class="modal-body">
+                    <center><img src="img/istj-logistician.svg" width="50%" /></center>
+                </div>
+                <div class="modal-footer">
+                    <a href="frame_istj.php"><button id="button" class="btn btn-default">See the details<i class="fa fa-paper-plane-o ml-1"></i></button></a>
+                </div>
             </div>
-            <div class="Q">
-                <p class="Q2">You often get so lost in thoughts that you ignore or forget your surroundings.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
+        </div>
+    </div>
+
+    <div id="result2" class="modal fade" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">                
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+                    <p class="word2">MyPersonality</p>
+                    <h2 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">I S T J</h2>
+                    <h3 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Mediator</h3>
+                </div>
+                <div class="modal-body">
+                    <center><img src="img/istj-logistician.svg" width="50%" /></center>
+                </div>
+                <div class="modal-footer">
+                    <a href="frame_istj.php"><button id="button" class="btn btn-default">See the details<i class="fa fa-paper-plane-o ml-1"></i></button></a>
+                </div>
             </div>
-            <div class="Q">
-                <p class="Q3">You try to respond to your e-mails as soon as possible and cannot stand a messy inbox.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q4">You find it easy to stay relaxed even when there is some pressure.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q5">You do not usually initiate conversations.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q6">You rarely do something just out of sheer curiosity.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q7">You feel superior to other people.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q8">Being organized is more important to you than being adaptable.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q9">you are usually highly motivated and energetic.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q10">winning debate matters less to you than making sure no one gets upset.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <input type="submit" name="submit" value="SEE THE RESULT"/>
-        </div>  
-        </form>
+        </div>
+    </div>
+
     </div>
 <?php
     include('footer.php');

@@ -12,7 +12,7 @@
     include('topnavigation.php');
 ?>
 	<iframe src="Frame_istj_nav.php" name="NavigationFrame" width="17%" height="500" frameborder="0" scrolling="yes"></iframe>
-	<iframe name="ContentFrame" width="70%" height="500" frameborder="0" scrolling="yes"></iframe>
+	<iframe style="overflow:hidden;" name="ContentFrame" width="70%" height="500" frameborder="2" scrolling="no"></iframe>
 <!-- ini footer -->
 <?php
     include('footer.php');

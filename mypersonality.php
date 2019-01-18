@@ -39,28 +39,28 @@
 
     <!-- LOGIN POP UP -->
     <div id="add_data_modal" class="modal fade" >
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header text-center">                
-                <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
-                <p class="word2">MyPersonality</p>
-                <h2 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">know yourself, know your best way</h2>
-            </div>
-            <div class="modal-body">
-            <form id="insert_form" action="namadanemail.php" method="POST">
-                    <label style="font-family: Good Feeling Sans Demo;">Full Name:</label>
-                    <input type="text" name="fullname" id="fullname" class="form-control" title="only allowed the alphabet without space." style="margin: 3%; width: 500px;"/>
-                    <label style="font-family: Good Feeling Sans Demo;">E-Mail:</label>
-                    <input type="email" name="emaill" id="email" title="ex email : emailname@hostname.com" class="form-control validate" style="margin: 3%; width: 500px;"/>
-                    <input type="submit" name="insert" id="insert" value="insert" class="btn btn-success"/>
-            </form>
-            </div>
-            <div class="modal-footer">
-                <button id="button" class="btn btn-default" data-dismiss="modal">Close<i class="fa fa-paper-plane-o ml-1"></i></button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">                
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+                    <p class="word2">MyPersonality</p>
+                    <h2 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">know yourself, know your best way</h2>
+                </div>
+                <div class="modal-body">
+                <form id="insert_form" action="namadanemail.php" method="POST">
+                        <label style="font-family: Good Feeling Sans Demo;">Full Name:</label>
+                        <input type="text" name="fullname" id="fullname" class="form-control" title="only allowed the alphabet without space." style="margin: 3%; width: 500px;"/>
+                        <label style="font-family: Good Feeling Sans Demo;">E-Mail:</label>
+                        <input type="email" name="emaill" id="email" title="ex email : emailname@hostname.com" class="form-control validate" style="margin: 3%; width: 500px;"/>
+                        <input type="submit" name="insert" id="insert" value="insert" class="btn btn-success"/>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="button" class="btn btn-default" data-dismiss="modal">Close<i class="fa fa-paper-plane-o ml-1"></i></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     
 </div>

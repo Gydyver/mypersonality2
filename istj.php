@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- css -->
-	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="User.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-	<!-- script -->
-	<script src="tools/js/jquery.min.js"></script>
-	<script src="bootstrap/bootstrap.min.js"></script>
-	<!-- <script src="tools/js/angular.min.js"></script> -->
-	<title>MyPersonality - Personality test</title>
-</head>
-<body>
+<link rel="stylesheet" type="text/css" href="User.css">
 <div class="personalitycover">
         <img src="img/ISTJ.svg">
         <h1><center>ISTJ Personality (“The Logistician”)</center></h1>
@@ -39,36 +22,3 @@
         <p>ISTJs’ dedication is an excellent quality, allowing them to accomplish much, but it is also a core weakness that less scrupulous individuals take advantage of. ISTJs seek stability and security, considering it their duty to maintain a smooth operation, and they may find that their coworkers and significant others shift their responsibilities onto them, knowing that they will always take up the slack. ISTJs tend to keep their opinions to themselves and let the facts do the talking, but it can be a long time before observable evidence tells the whole story.</p>
         <p>ISTJs need to remember to take care of themselves – their stubborn dedication to stability and efficiency can compromise those goals in the long term as others lean ever-harder on them, creating an emotional strain that can go unexpressed for years, only finally coming out after it’s too late to fix. If they can find coworkers and spouses who genuinely appreciate and complement their qualities, who enjoy the brightness, clarity and dependability that they offer, ISTJs will find that their stabilizing role is a tremendously satisfying one, knowing that they are part of a system that works.</p>
    </div>
-</body>
-<script>
-// window.onscroll = function() {stickynav()};
-
-// var topnavbar = document.getElementById("myTopnav");
-// var sticky = topnavbar.offsetTop;
-
-// function stickynav() {
-// 	if (window.pageYOffset >= sticky) {
-//     topnavbar.classList.add("sticky");
-//  	} else {
-//     topnavbar.classList.remove("sticky");
-//   	}
-// }
-    
-$(window).scroll(function () {
-if ($(window).scrollTop() >= 50) {
-$('.topnav').css('background','transparent');
-} else {
-$('.topnav').css('background','transparent');
-}
-});
-
-function myFunctionn() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-</script>
-</html>

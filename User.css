@@ -370,3 +370,8 @@ hr{
     border-radius: 50%;
     background-color: #0d5c70;
 }
+iframe.noScrolling{
+    width: 250px;
+    height: 500px;
+    overflow: hidden;
+}
