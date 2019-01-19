@@ -17,7 +17,7 @@
        $query = mysqli_query($db,$sq2);
        // buat masukin id yang di dapet dari select diatas ke session
        $_SESSION['userid'] = $query;
-       //lempar ke halaman pertanyaan
+       //lempar ke halaman result
        header('location:Result.php');
     }else{
         // buat masukin ke session

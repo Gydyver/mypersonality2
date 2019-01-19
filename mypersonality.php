@@ -1,8 +1,15 @@
 <?php
    session_start();
    if(isset($_SESSION['userid'])) {
-   header('location:User_Home.php'); }
+   header('location:Result.php'); 
+    }
    require_once("konekmysqli2.php");
+    // session_start();
+    // if (!empty($_SESSION['usrid']))
+    // {
+    //     header('location:home');
+    // }
+    // session_destroy();
 ?>
 <!DOCTYPE html>
 <html>

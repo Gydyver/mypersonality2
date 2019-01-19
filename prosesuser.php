@@ -12,19 +12,21 @@
 	 //disini pake mysql_insert_id function untuk ngambil id dari data yang recently recorded
 	 //buat ngecek apakah proses query insert diatas berhasil atau nggak
 	 //kalo berhasil :
-	 if ($db->query($result1) === TRUE) {
+	 if ($result1) {
     		$last_id = mysqli_insert_id($db);
-    		echo "New record created successfully. Last inserted ID is: " . $last_id;
+    		// echo "New record created successfully. Last inserted ID is: " . $last_id;
 	} 
 	// kalo gagal :
 	else {
-    		echo "Error: " . $result1 . "<br>" . $db->error;
+    		// echo "Error: " . $result1 . "<br>" . $db->error;
 	}
 	 
 
-	 //ini untuk simpen jawaban, jangan lupa masukin id_user
+	 // ini untuk simpen jawaban, jangan lupa masukin id_user
 	foreach($_POST['answer'] as $key => $value){
         $query = "INSERT INTO answer_table (id_user, id_question, answer) VALUES ('$last_id','$key', '$value')";
         $result = mysqli_query($db, $query);
 	}
+	echo "jawaban berhasil disimpan";
+	header('location:Result.php');
 ?>

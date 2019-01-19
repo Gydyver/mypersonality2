@@ -1,5 +1,9 @@
 <?php
    session_start();
+   if(empty($_SESSION['useremail'])) {
+        header('location:mypersonality.php'); 
+    }
+   // require_once("konekmysqli2.php");
 ?>
 <!DOCTYPE html>
 <html>
