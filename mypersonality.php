@@ -1,3 +1,9 @@
+<?php
+   session_start();
+   if(isset($_SESSION['userid'])) {
+   header('location:User_Home.php'); }
+   require_once("konekmysqli2.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,81 +67,8 @@
         </div>
     </div>
 </div>
-<?php
-        if(isset($_POST["insert"]))
-        {
-            if(!isset($_POST["fullname"])){
-                $error = 'PLEASE INPUT YOUR NAME';
-                return $error;
-            }elseif (!isset($_POST["email"])){
-                    $error = 'PLEASE INPUT YOUR EMAIL';
-                    return $error;
-            }
-    
-        //Including dbconfig file.
-        include 'konekmysqli2.php';
 
-        $inputname=$_POST["fullname"];
-        $inputemail=$_POST["email"];
-
-        $query = "SELECT user_email FROM user_table where user_email = '".$inputemail."'";
-        $result = mysqli_query($db, $query);
-        if($result){
-            while ($row = mysqli_fetch_row($result)) {
-                if (isset($inputemail->user_email)) {
-                    echo "ada";
-                }else{
-                     $query = "INSERT INTO user_table (user_email,user_name) VALUES ('$inputemail','$inputname')";
-                     $result = mysqli_query($db, $query);
-  
-                     echo " Added Successfully ";
-                        
-                     }
-                }
-            }
-        }
-        
-         //Including dbconfig file.
-        // include 'konekmysqli2.php';
-         
-        // $inputname=$_POST["fullname"];
-        // $inputemail=$_POST["email"];
-        
-
-
-       
-
-        ?>
     
 </div>
 </body>
-<script>
-$(document).ready(function(){
-
-    $('#insert_form').on('submit', function(event){
-        event.preventDefault();
-        if ($('#fullname').val() == '')
-        {
-            alert("Full name is required");
-        }
-        else if($('#email').val() == '')
-        {
-            alert("Email is required");
-        }
-        else
-        {
-            $.ajax({
-                url:"mypersonality.php",
-                method:"POST",
-                data:$('#insert_form').serialize(),
-                success:function(data)
-                {
-                    $('#insert_form')[0].reset();
-                    $('#add_data_modal').modal('hide');
-                }
-            });
-        }
-    });
-});
-</script>
 </html>

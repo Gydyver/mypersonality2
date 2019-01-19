@@ -1,3 +1,6 @@
+<?php
+   session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +18,7 @@
     <title>MyPersonality - Personality test</title>
 </head>
 <body>
+    <form action="prosesuser.php" method="POST">
 <?php
     include("konekmysqli2.php");
 
@@ -28,15 +32,17 @@
         echo "<br/>";
         echo "
         <label class='radio-inline'><span>YES</span>
-            <input type='radio' class='form-check-label' name=".$row['id_question']." checked value='1'/>
+            <input type='radio' class='form-check-label' name= 'answer[".$row['id_question']."]' checked value='1'/>
         </label>
         <label class='radio-inline'><span>NO</span>
-            <input type='radio' class='form-check-label' name=".$row['id_question']." checked value='2'/>
+            <input type='radio' class='form-check-label' name= 'answer[".$row['id_question']."]' checked value='2'/>
         </label>
         ";
     }
-
 ?>
+    <br>
+    <button type="submit" name="submit" class="btn btn-info">Submit</button>
+</form>
     <div class="topnav" id="myTopnav"> 
         <p class="logo">MyPersonality</p> 
         <a href="#">ABOUT</a> 
@@ -71,213 +77,7 @@
                 <div class="ruletext"><p>and do not left any questions with no answer</p></div>
             </div>
         </div>
-        <hr>
-        <div class="thequestion">
-            <form action="namadanemail.php" method="POST">
-            <center><label style="font-family: Good Feeling Sans Demo;">Name: </label><input type="text" name="nama"/></center>
-            <div class="Q">
-                <p class="Q1">You find it difficult to introduce yourself to other people.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q1" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q2">You often get so lost in thoughts that you ignore or forget your surroundings.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q2" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q3">You try to respond to your e-mails as soon as possible and cannot stand a messy inbox.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q3" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q4">You find it easy to stay relaxed even when there is some pressure.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q4" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q5">You do not usually initiate conversations.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q5" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q6">You rarely do something just out of sheer curiosity.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q6" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q7">You feel superior to other people.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q7" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q8">Being organized is more important to you than being adaptable.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q8" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q9">you are usually highly motivated and energetic.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q9" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <div class="Q">
-                <p class="Q10">winning debate matters less to you than making sure no one gets upset.</p>
-                <p class="agree">Agree</p>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="1"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="2"/> 
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="3"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="4"/>
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" class="form-check-label" name="q10" checked value="5"/>
-                </label>
-                <p class="agree">Disagree</p>
-            </div>
-            <input type="submit" name="submit" value="SEE THE RESULT"/>
-        </div>  
-        </form>
+        
     </div>
     
    <div class="footer">
