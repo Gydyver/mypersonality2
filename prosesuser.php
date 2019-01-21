@@ -156,7 +156,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">                
-                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+                    <a href="User_Home.php"><button type="button" class="btn btn-default" style="float:right;">close</button></a>
                     <p class="word2">MyPersonality</p>
                     <h3 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">I S T J</h3>
                     <h4 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Logitician</h4>
@@ -176,7 +176,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">                
-                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+					<a href="User_Home.php"><button type="button" class="btn btn-default" style="float:right;">&times;</button></a>
                     <p class="word2">MyPersonality</p>
                     <h3 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">I N F P</h3>
                     <h4 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Mediator</h4>
@@ -196,7 +196,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">                
-                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+					<a href="User_Home.php"><button type="button" class="btn btn-default" style="float:right;">&times;</button></a>
                     <p class="word2">MyPersonality</p>
                     <h3 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">E S T J</h3>
                     <h4 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Executive</h4>

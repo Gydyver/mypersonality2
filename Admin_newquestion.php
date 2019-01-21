@@ -26,7 +26,7 @@
 ?>
     <div class="center-block" style="margin-top:6%;">
         <div style="text-align:center; color:#ec8007; background-color:#eceadc;">
-            <h1>QUESTION</h1>
+            <h1>ADD NEW QUESTION</h1>
         </div>
         <div class="center-block">
         <form action="#" method="POST">
@@ -66,7 +66,7 @@
         $query = "INSERT INTO question_table (category, question, status) VALUES ('$inputcategory','$inputquestion', 1)";
         $result = mysqli_query($db, $query);
 
-        echo " Added Successfully ";
+        echo "<script> alert('new question is added succesfully!'); </script>";
         
         }
 

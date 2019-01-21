@@ -24,6 +24,21 @@
 <?php
 include('topnavadmin.php');
 ?>
+      <div style="background-color: snow;">
+      <div class="column fpimg">
+        <!-- <img src="img/image1.svg" alt="The Personalities"/> -->
+        <img src="img/infp-mediator.svg"/>
+      </div>
+      <div class="text">
+      <div class="column fptext">
+          <div class="fptext1">
+            <p class="word1">WELCOME TO</p>
+            <p class="word2">MyPersonality</p>
+          </div>
+      </div>
+      </div>
+    </div>
+      <center><p class="hello">"Hello, Admin !"</p></center>
 </body>
 <script type="text/javascript">
       /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */

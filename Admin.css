@@ -1,4 +1,15 @@
-
+@font-face{
+  font-family: "Good Feeling Sans Demo";
+  src:url('fonts/Good_Feeling.ttf');
+}
+@font-face{
+  font-family: "Sweet Rathulia";
+  src:url('fonts/Sweet Rathulia.ttf');
+}
+@font-face{
+  font-family: "zetetic";
+  src:url('fonts/zetetic.otf');
+}
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
@@ -65,6 +76,37 @@
     }
   }
   
-
-  
-  
+.fpimg{
+    width: 15%;
+    margin-top: 4%;
+    margin-left: 15%;
+}
+.word1{
+    font-family: 'Good Feeling Sans Demo';
+    font-size: 17px;
+}
+.word2{
+    margin-top: 10px;
+    font-family: 'Sweet Rathulia';
+    font-size: 50px;
+    color: rgb(76, 161, 133);
+    text-shadow: -1px 0 antiquewhite, 0 1px antiquewhite, 1px 0 antiquewhite, 0 -1px antiquewhite;
+}
+.hello{
+    font-family: 'Sweet Rathulia';
+    font-size: 90px;
+    margin-top: -33%;
+    margin-left: 35%;
+}
+/*.review{
+    font-family: 'zetetic';
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: rgb(27, 93, 138);
+}*/
+.text{
+  float: right;
+  margin-top: -10%;
+  margin-right: 46%;
+}

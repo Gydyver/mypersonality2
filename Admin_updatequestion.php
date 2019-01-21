@@ -27,7 +27,7 @@ if(empty($_SESSION['admin'])) {
 ?>
     <div class="center-block" style="margin-top:6%;">
         <div style="text-align:center; color:#ec8007; background-color:#eceadc;">
-            <h1>UPDATE QUESTION</h1>
+            <h1>UPDATE & DELETE QUESTION</h1>
         </div>
         <div class="center-block">
         <form action="#" method="POST">
@@ -44,8 +44,8 @@ if(empty($_SESSION['admin'])) {
                     <label for="comment">Question:</label>
                     <textarea name="inputquestion" class="form-control" rows="5" id="comment"></textarea>
                 </div>
-                <button type="submit" name="update" class="btn btn-info">UPDATE</button>
-                <button type="button" name="deleteawal" onclick="confirmdelete()">DELETE</button>
+                <button type="submit" name="update" class="btn btn-info" style="font-weight: bold;">UPDATE</button>
+                <button type="button" name="deleteawal" class="btn btn-danger" style="margin-left: 5%; font-weight: bold;" onclick="confirmdelete()">DELETE</button>
                 <button type="submit" name="delete" class="btn btn-danger" style="float: right;display:none;" id="deletetrigger"></button><br/><br/>
                 <?php
                     if (isset($_POST["update"])) {
@@ -57,6 +57,7 @@ if(empty($_SESSION['admin'])) {
                         if(!$result1){
                             echo "salah query update";
                         }
+                        echo "<script> alert('question is updated successfully!'); </script>";
                     }
             		if (isset($_POST["delete"])) {
                         $tfid_question = $_POST['tfid_question'];
@@ -67,6 +68,7 @@ if(empty($_SESSION['admin'])) {
                         if(!$result3){
                             echo "salah query delete";
                         }
+                        echo "<script> alert('question is deleted successfully!'); </script>";
                     }
 
                 $query = 'SELECT * FROM question_table WHERE status = 1';
