@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="User.css">
+<script src="tools/js/jquery.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+
 <?php
 	// print_r($_POST);
 	session_start();
@@ -36,103 +41,172 @@
         $query = "INSERT INTO answer_table (id_user, id_question, answer) VALUES ('$last_id','$key', '$value')";
         $result = mysqli_query($db, $query);
 
-        $query2 ="SELECT category FROM question_table WHERE id =$key";
+        $query2 ="SELECT category FROM question_table WHERE id_question = '".$key."'";
         $result2 = mysqli_query($db, $query2);
 
+        $query3 ="SELECT answer FROM answer_table WHERE id_question = '".$key."' && id_user = '".$last_id."'";
+        $result3 = mysqli_query($db, $query3);
+
         $row = mysqli_fetch_row($result2);
+        $row2 = mysqli_fetch_row($result3);
+        // print_r($row);
+        // die();
+        // print_r($row2);
+        // die();
 
-        if($row = "Introvert vs Extrovert"){
-        	$introvert = $introvert +1;
-        }else {
-        	$extrovert = $extrovert + 1;
-        };
-
-        if($row = "Sensing vs Intuiting"){
-        	$sensing = $sensing +1;
-        }else {
-        	$intuiting = $intuiting + 1;
-        };
-
-        if($row = "Thinking vs Feeling"){
-        	$thinking = $thinking +1;
-        }else {
-        	$ = $feeling + 1;
-        };
-
-        if($row = "Judging vs Perceiving"){
-        	$ = $judging +1;
-        }else {
-        	$ = $perceiving + 1;
-        };
-	}
+        if($row[0] == "Introvert vs Extrovert"){
+        	if ($row2[0] == 1) {
+        		$introvert = $introvert +1;
+        	}elseif($row2[0] == 2){
+        		$extrovert = $extrovert + 1;
+        	}	
+        }elseif($row[0] == "Sensing vs Intuiting"){
+        	if ($row2[0] == 1) {
+        		$sensing = $sensing +1;
+        	}elseif($row2[0] == 2){
+        		$intuiting = $intuiting + 1;
+        	}
+        }elseif($row[0] == "Thinking vs Feeling"){
+        	if ($row2[0] == 1) {
+        		$thinking = $thinking +1;
+        	}elseif($row2[0] == 2){
+        		$feeling = $feeling + 1;
+        	}
+        }elseif($row[0] == "Judging vs Perceiving"){
+        	if ($row2[0] == 1) {
+        		$judging = $judging +1;
+        	}elseif($row2[0] == 2){
+        		$perceiving = $perceiving + 1;
+        	}
+		}
 	$HasilAkhir = "";
 	if($introvert >$extrovert){
-		$HasilAkhir = ."I";
+		$HasilAkhir = $HasilAkhir."I";
 	}
 	else{
-		$HasilAkhir = ."E";
-	}
+		$HasilAkhir = $HasilAkhir."E";
+	};
 	if($sensing >$intuiting){
-		$HasilAkhir = ."S";
+		$HasilAkhir = $HasilAkhir."S";
 	}
 	else{
-		$HasilAkhir = ."N";
-	}
+		$HasilAkhir = $HasilAkhir."N";
+	};
 	if($thinking >$feeling){
-		$HasilAkhir = ."T";
+		$HasilAkhir = $HasilAkhir."T";
 	}
 	else{
-		$HasilAkhir = ."F";
-	}
+		$HasilAkhir = $HasilAkhir."F";
+	};
 	if($judging >$perceiving){
-		$HasilAkhir = ."J";
+		$HasilAkhir = $HasilAkhir."J";
 	}
 	else{
-		$HasilAkhir = ."P";
-	}
+		$HasilAkhir = $HasilAkhir."P";
+	};
+}
+// echo $HasilAkhir;
 ?>
 <!--  php didalam script supaya bisa pake $(document).ready(function() sekali,
 	pake echo untuk kodingan yang sebenernya js karna dengan pake echo di php, secara gak langsung dia akan ngeprint kodingannya. 
 	kodingannya akan ketempel di js nya deh -->
-<script type="text/javascript">
+<script>
 	$(document).ready(function(){
-<?php
-	if($HasilAkhir = "ISTJ" ){
-		echo "$('#ISTJModal').modal('show')";
-	}elseif ($HasilAkhir = "ESTJ" ) {
-		echo "$('#ESTJModal').modal('show')";
-	}elseif ($HasilAkhir = "INTJ" ) {
-		echo "$('#INTJModal').modal('show')";
-	}elseif ($HasilAkhir = "ENTJ" ) {
-		echo "$('#ENTJModal').modal('show')";
-	}elseif ($HasilAkhir = "ISFJ" ) {
-		echo "$('#ISFJModal').modal('show')";
-	}elseif ($HasilAkhir = "ESFJ" ) {
-		echo "$('#ESFJModal').modal('show')";
-	}elseif ($HasilAkhir = "INFJ" ) {
-		echo "$('#INFJModal').modal('show')";
-	}elseif ($HasilAkhir = "ENFJ" ) {
-		echo "$('#ENFJModal').modal('show')";
-	}elseif ($HasilAkhir = "ISTP" ) {
-		echo "$('#ISTPModal').modal('show')";
-	}elseif ($HasilAkhir = "ESTP" ) {
-		echo "$('#ESTPModal').modal('show')";
-	}elseif ($HasilAkhir = "INTP" ) {
-		echo "$('#INTPModal').modal('show')";
-	}elseif ($HasilAkhir = "ENTP" ) {
-		echo "$('#ENTPModal').modal('show')";
-	}elseif ($HasilAkhir = "ISFP" ) {
-		echo "$('#ISFPModal').modal('show')";
-	}elseif ($HasilAkhir = "ESFP" ) {
-		echo "$('#ESFPModal').modal('show')";
-	}elseif ($HasilAkhir = "INFP" ) {
-		echo "$('#INFPModal').modal('show')";
-	}elseif ($HasilAkhir = "ENFP" ) {
-		echo "$('#ENFPModal').modal('show')";
-	}
+		
+		var str = "<?php echo $HasilAkhir ?>"
+			if(str == "ISTJ" ){
+				$('#ISTJModal').modal('show');
+			}else if (str == "ESTJ" ) {
+				$('#ESTJModal').modal('show');
+			}else if (str == "INTJ" ) {
+				$('#INTJModal').modal('show');
+			}else if (str == "ENTJ" ) {
+				$('#ENTJModal').modal('show');
+			}else if (str == "ISFJ" ) {
+				$('#ISFJModal').modal('show');
+			}else if (str == "ESFJ" ) {
+				$('#ESFJModal').modal('show');
+			}else if (str == "INFJ" ) {
+				$('#INFJModal').modal('show');
+			}else if (str == "ENFJ" ) {
+				$('#ENFJModal').modal('show');
+			}else if (str == "ISTP" ) {
+				$('#ISTPModal').modal('show');
+			}else if (str == "ESTP" ) {
+				$('#ESTPModal').modal('show');
+			}else if ( str == "INTP" ) {
+				$('#INTPModal').modal('show');
+			}else if (str == "ENTP" ) {
+				$('#ENTPModal').modal('show');
+			}else if (str == "ISFP" ) {
+				$('#ISFPModal').modal('show');
+			}else if (str == "ESFP" ) {
+				$('#ESFPModal').modal('show');
+			}else if (str == "INFP" ) {
+				$('#INFPModal').modal('show');
+			}else if (str == "ENFP" ) {
+				$('#ENFPModal').modal('show');
+			}
 
-	echo "jawaban berhasil disimpan";
-	header('location:Result.php');
-?>
+			// echo "jawaban berhasil disimpan";
 });		
 </script>
+<!-- ini buat pop up -->
+    <div id="ISTJModal" class="modal fade" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">                
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+                    <p class="word2">MyPersonality</p>
+                    <h3 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">I S T J</h3>
+                    <h4 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Logitician</h4>
+                </div>
+                <div class="modal-body">
+                    <center><img src="img/istj-logistician.svg" width="50%" /></center>
+                </div>
+                <div class="modal-footer">
+                    <a href="frame_istj.php"><button id="button" class="btn btn-default">see the details<i class="fa fa-paper-plane-o ml-1"></i></button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ini buat pop up -->
+    <div id="INFPModal" class="modal fade" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">                
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+                    <p class="word2">MyPersonality</p>
+                    <h3 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">I N F P</h3>
+                    <h4 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Mediator</h4>
+                </div>
+                <div class="modal-body">
+                    <center><img src="img/infp-mediator.svg" width="50%" /></center>
+                </div>
+                <div class="modal-footer">
+                    <a href="frame_istj.php"><button id="button" class="btn btn-default">see the details<i class="fa fa-paper-plane-o ml-1"></i></button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- ini buat pop up -->
+    <div id="ESTJModal" class="modal fade" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">                
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">&times;</button>
+                    <p class="word2">MyPersonality</p>
+                    <h3 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">E S T J</h3>
+                    <h4 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Executive</h4>
+                </div>
+                <div class="modal-body">
+                    <center><img src="img/estj-executive.svg" width="50%" /></center>
+                </div>
+                <div class="modal-footer">
+                    <a href="frame_estj.php"><button id="button" class="btn btn-default">see the details<i class="fa fa-paper-plane-o ml-1"></i></button></a>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -22,41 +22,9 @@
     <title>MyPersonality - Personality test</title>
 </head>
 <body>
-    <form action="prosesuser.php" method="POST">
 <?php
-    include("konekmysqli2.php");
-
-    $query = "SELECT * FROM question_table WHERE status = 1";
-    $result = mysqli_query($db, $query);
-    if(!$result){
-        echo "salah query";
-    }
-    while ($row = mysqli_fetch_array($result)) {
-        echo "<br/>". $row['question'];
-        echo "<br/>";
-        echo "
-        <label class='radio-inline'><span>YES</span>
-            <input type='radio' class='form-check-label' name= 'answer[".$row['id_question']."]' checked value='1'/>
-        </label>
-        <label class='radio-inline'><span>NO</span>
-            <input type='radio' class='form-check-label' name= 'answer[".$row['id_question']."]' checked value='2'/>
-        </label>
-        ";
-    }
+include('topnavigation.php');
 ?>
-    <br>
-    <button type="submit" name="submit" class="btn btn-info">Submit</button>
-</form>
-    <div class="topnav" id="myTopnav"> 
-        <p class="logo">MyPersonality</p> 
-        <a href="#">ABOUT</a> 
-        <a href="#">REVIEW</a>
-        <a href="personalitytypes.php">PERSONALITY TYPE</a>
-        <a href="#" class="btn btn-info">HOME</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
     <div class="therules">
         <div class="titletypes">
                 <center><p><h2>ATTENTION</h2></p></center>
@@ -80,22 +48,33 @@
                 </div>
                 <div class="ruletext"><p>and do not left any questions with no answer</p></div>
             </div>
-        </div>
+        </div><br/><br/>
         
     </div>
-    
-   <div class="footer">
-       <div>
-            <div class="footer-icons col-md-6 col-xs-10">
-                <a href="#"><img src="icon/002-twitter.png">mypersonality</a>
-                <a href="#"><img src="icon/001-facebook.png">MyPersonality ID</a>
-                <a href="#"><img src="icon/envelope.png">help@myprs.id</a>
-            </div>
-            <div class="copyright">
-                <center><p>Copyright &#169; 2018 MyPersonality Personality Online Test Inc. All right reserved</p></center></p>
-            </div>
-        </div>
-   </div>  
+<center><form action="prosesuser.php" method="POST">
+<?php
+    include("konekmysqli2.php");
+
+    $query = "SELECT * FROM question_table WHERE status = 1";
+    $result = mysqli_query($db, $query);
+    if(!$result){
+        echo "salah query";
+    }
+    while ($row = mysqli_fetch_array($result)) {
+        echo "<br/><br/><span style='font-family:good feeling sans demo;font-size:17px;'>". $row['question']."</span>";
+        echo "<br/>";
+        echo "
+        <label class='radio-inline' style='margin-left:-1%;font-family:good feeling sans demo; font-weight:bold; color: forestgreen;font-size:17px;'>YES</label><input type='radio' style='margin-left:5px;'class='form-check-label' name= 'answer[".$row['id_question']."]' checked value='1'/>
+        <input type='radio' style='margin-left:2%;margin-right:-1%;'class='form-check-label' name= 'answer[".$row['id_question']."]' checked value='2'/><label class='radio-inline' style='font-family:good feeling sans demo; font-weight:bold; color: firebrick;font-size:17px;'>NO</label>
+        ";
+    }
+?>
+    <br/><br/>
+    <button type="submit" name="submit" class="btn btn-info">Submit</button>
+</form></center>
+<?php
+include('footer.php');
+?>  
 
 </body>
 <script>

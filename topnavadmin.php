@@ -18,8 +18,8 @@
     <div class="topnav" id="myTopnav">
         <a href="Admin_Home.php" class="active">Home</a>
         <a href="Admin_newquestion.php">Add</a>
-        <a href="Admin_updatequestion.php">Update</a>
-        <a href="Admin_deletequestion.php">Delete</a>
+        <a href="Admin_updatequestion.php">Update & Delete</a>
+        <a href="logoutadmin.php" style="background-color: firebrick; color: white; float: right;">LOGOUT</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>

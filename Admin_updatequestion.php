@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(empty($_SESSION['admin'])) {
+        header('location:adminlogin.php'); 
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,31 +32,8 @@
         <div class="center-block">
         <form action="#" method="POST">
             <div class="form-group">
-            <!-- <button type="submit" name="view" class="btn btn-succes">VIEW ALL QUESTIONS</button><br/> -->
             <?php
             include 'konekmysqli2.php';
-             // if (isset($_POST['view'])) {
-                // $query = 'SELECT * FROM question_table WHERE status = 1';
-                // $result = mysqli_query($db, $query) ;
-
-                // if (!$result) {
-                //     echo("Error description: " . mysqli_error($mysqli));
-                // } else {
-                //     echo "<table border='1' id='table'>
-                //     <tr>
-                //     <th>ID</th>
-                //     <th>Category</th>
-                //     <th>Questions</th>
-                //     </tr>";
-                //     while ($row = mysqli_fetch_array($result)) {
-                //         echo "<tr>
-                //             <td>" . $row['id_question'] . "</td>
-                //             <td>" . $row['category'] . "</td>
-                //             <td>" . $row['question'] . "</td>                                          
-                //           </tr>";
-                //      }
-                //  }
-                // }
             ?>
                 <label>Question ID: </label><br/>
                     <input type="text" name="tfid_question" id="tfid_question" readonly/><br/>
@@ -64,8 +48,6 @@
                 <button type="button" name="deleteawal" onclick="confirmdelete()">DELETE</button>
                 <button type="submit" name="delete" class="btn btn-danger" style="float: right;display:none;" id="deletetrigger"></button><br/><br/>
                 <?php
-                    // include 'konekmysqli2.php';
-
                     if (isset($_POST["update"])) {
                         $tfid_question = $_POST['tfid_question'];
                         $inputquestion = $_POST['inputquestion'];
@@ -75,22 +57,6 @@
                         if(!$result1){
                             echo "salah query update";
                         }
-
-                   //      	$query2 = 'SELECT * FROM question_table WHERE status = 1';
-                			// $tampil1 = mysqli_query($db, $query2) ;
-                   //          echo "<table border='1' id='table'>
-                   //  <tr>
-                   //  <th>ID</th>
-                   //  <th>Category</th>
-                   //  <th>Questions</th>
-                   //  </tr>";
-                   //  while ($row = mysqli_fetch_array($tampil1)) {
-                   //      echo "<tr>
-                   //          <td>" . $row['id_question'] . "</td>
-                   //          <td>" . $row['category'] . "</td>
-                   //          <td>" . $row['question'] . "</td>                                          
-                   //        </tr>";
-                   //   }
                     }
             		if (isset($_POST["delete"])) {
                         $tfid_question = $_POST['tfid_question'];
@@ -101,22 +67,6 @@
                         if(!$result3){
                             echo "salah query delete";
                         }
-
-                   //      	$query3 = 'SELECT * FROM question_table WHERE status = 1';
-                			// $tampil2 = mysqli_query($db, $query3) ;
-                   //          echo "<table border='1' id='table'>
-                   //  <tr>
-                   //  <th>ID</th>
-                   //  <th>Category</th>
-                   //  <th>Questions</th>
-                   //  </tr>";
-                   //  while ($row = mysqli_fetch_array($tampil2)) {
-                   //      echo "<tr>
-                   //          <td>" . $row['id_question'] . "</td>
-                   //          <td>" . $row['category'] . "</td>
-                   //          <td>" . $row['question'] . "</td>                                          
-                   //        </tr>";
-                   //   }
                     }
 
                 $query = 'SELECT * FROM question_table WHERE status = 1';

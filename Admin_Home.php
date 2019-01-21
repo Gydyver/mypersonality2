@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(empty($_SESSION['admin'])) {
+        header('location:adminlogin.php'); 
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +23,7 @@
 <body>
 <?php
 include('topnavadmin.php');
-?>  
+?>
 </body>
 <script type="text/javascript">
       /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
