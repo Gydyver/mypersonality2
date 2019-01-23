@@ -2,6 +2,27 @@
 <link rel="stylesheet" type="text/css" href="User.css">
 <script src="tools/js/jquery.min.js"></script>
 <script src="bootstrap/bootstrap.min.js"></script>
+<script>
+	var history_api = typeof history.pushState !== 'undefined'
+
+// The previous page asks that it not be returned to
+if ( location.hash == '#no-back' ) {
+  // Push "#no-back" onto the history, making it the most recent "page"
+  if ( history_api ) history.pushState(null, '', '#stay')
+  else location.hash = '#stay'
+
+  // When the back button is pressed, it will harmlessly change the url
+  // hash from "#stay" to "#no-back", which triggers this function
+  window.onhashchange = function() {
+    // User tried to go back; warn user, rinse and repeat
+    if ( location.hash == '#no-back' ) {
+      alert("You shall not pass!")
+      if ( history_api ) history.pushState(null, '', '#stay')
+      else location.hash = '#stay'
+    }
+  }
+}
+</script>
 
 <?php
 	// print_r($_POST);
@@ -156,7 +177,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">                
-                    <a href="User_Home.php"><button type="button" class="btn btn-default" style="float:right;">close</button></a>
+                    <a href="Logout.php"><button type="button" class="btn btn-default" style="float:right;">close</button></a>
                     <p class="word2">MyPersonality</p>
                     <h3 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">I S T J</h3>
                     <h4 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Logitician</h4>
@@ -176,7 +197,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">                
-					<a href="User_Home.php"><button type="button" class="btn btn-default" style="float:right;">&times;</button></a>
+					<a href="Logout.php"><button type="button" class="btn btn-default" style="float:right;">&times;</button></a>
                     <p class="word2">MyPersonality</p>
                     <h3 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">I N F P</h3>
                     <h4 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Mediator</h4>
@@ -196,7 +217,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">                
-					<a href="User_Home.php"><button type="button" class="btn btn-default" style="float:right;">&times;</button></a>
+					<a href=Logout.php"><button type="button" class="btn btn-default" style="float:right;">&times;</button></a>
                     <p class="word2">MyPersonality</p>
                     <h3 class="modal-title font-weight-bold" style="font-family: Good Feeling Sans Demo;">E S T J</h3>
                     <h4 class="modal-title" style="font-family: Good Feeling Sans Demo;">The Executive</h4>

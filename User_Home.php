@@ -51,7 +51,7 @@ include('topnavigation.php');
         </div><br/><br/>
         
     </div>
-<center><form action="prosesuser.php" method="POST">
+<center><form action="prosesuser.php#no-back" method="POST">
 <?php
     include("konekmysqli2.php");
 
@@ -64,8 +64,8 @@ include('topnavigation.php');
         echo "<br/><br/><span style='font-family:good feeling sans demo;font-size:17px;'>". $row['question']."</span>";
         echo "<br/>";
         echo "
-        <label class='radio-inline' style='margin-left:-1%;font-family:good feeling sans demo; font-weight:bold; color: forestgreen;font-size:17px;'>YES</label><input type='radio' style='margin-left:5px;'class='form-check-label' name= 'answer[".$row['id_question']."]' checked autocomplete='off' value='1'/>
-        <input type='radio' style='margin-left:2%;margin-right:-1%;'class='form-check-label' name= 'answer[".$row['id_question']."]' checked autocomplete='off' value='2'/><label class='radio-inline' style='font-family:good feeling sans demo; font-weight:bold; color: firebrick;font-size:17px;'>NO</label>
+        <label class='radio-inline' style='margin-left:-1%;font-family:good feeling sans demo; font-weight:bold; color: forestgreen;font-size:17px;'>YES</label><input type='radio' style='margin-left:5px;'class='form-check-label' name= 'answer[".$row['id_question']."]' checked value='1'/>
+        <input type='radio' style='margin-left:2%;margin-right:-1%;'class='form-check-label' name= 'answer[".$row['id_question']."]' checked value='2'/><label class='radio-inline' style='font-family:good feeling sans demo; font-weight:bold; color: firebrick;font-size:17px;'>NO</label>
         ";
     }
 ?>
